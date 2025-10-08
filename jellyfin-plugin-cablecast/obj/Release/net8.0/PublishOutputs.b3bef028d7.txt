@@ -1,0 +1,17 @@
+/app/jellyfin-plugin-cablecast/bin/Release/net8.0/publish/Jellyfin.Plugin.CableCast.dll
+/app/jellyfin-plugin-cablecast/bin/Release/net8.0/publish/Jellyfin.Plugin.CableCast.pdb
+/app/jellyfin-plugin-cablecast/bin/Release/net8.0/publish/Diacritics.dll
+/app/jellyfin-plugin-cablecast/bin/Release/net8.0/publish/ICU4N.dll
+/app/jellyfin-plugin-cablecast/bin/Release/net8.0/publish/ICU4N.Transliterator.dll
+/app/jellyfin-plugin-cablecast/bin/Release/net8.0/publish/J2N.dll
+/app/jellyfin-plugin-cablecast/bin/Release/net8.0/publish/MediaBrowser.Common.dll
+/app/jellyfin-plugin-cablecast/bin/Release/net8.0/publish/MediaBrowser.Controller.dll
+/app/jellyfin-plugin-cablecast/bin/Release/net8.0/publish/Jellyfin.Data.dll
+/app/jellyfin-plugin-cablecast/bin/Release/net8.0/publish/Jellyfin.Extensions.dll
+/app/jellyfin-plugin-cablecast/bin/Release/net8.0/publish/MediaBrowser.Model.dll
+/app/jellyfin-plugin-cablecast/bin/Release/net8.0/publish/Emby.Naming.dll
+/app/jellyfin-plugin-cablecast/bin/Release/net8.0/publish/Microsoft.Extensions.Configuration.Binder.dll
+/app/jellyfin-plugin-cablecast/bin/Release/net8.0/publish/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/app/jellyfin-plugin-cablecast/bin/Release/net8.0/publish/Microsoft.Extensions.Logging.Abstractions.dll
+/app/jellyfin-plugin-cablecast/bin/Release/net8.0/publish/Jellyfin.Plugin.CableCast.xml
+/app/jellyfin-plugin-cablecast/bin/Release/net8.0/publish/Jellyfin.Plugin.CableCast.deps.json

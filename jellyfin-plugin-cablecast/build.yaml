@@ -1,0 +1,23 @@
+---
+name: "jellyfin-plugin-cablecast"
+guid: "a8c8f3b2-4d5e-4f6a-9b8c-7e2f1a3d4e5f"
+version: "1.0.0.0"
+jellyfin_version: "10.9.0"
+nicename: "CableCast"
+description: "Create virtual cable TV channels with continuous programming, commercials, and pre-rolls from your Jellyfin library"
+overview: "CableCast allows you to create virtual cable TV channels that play content from your Jellyfin libraries in a continuous, TV-like experience. Features include commercial insertion, pre-roll content, schedule-based or continuous programming, and content filtering."
+prn: 1
+changelog: >
+  Initial release of CableCast plugin:
+  - Create virtual cable TV channels
+  - Schedule-based and continuous programming
+  - Commercial insertion between content
+  - Pre-roll content support
+  - Content filtering by genre, rating, year, etc.
+  - RESTful API for channel management
+  - Background service for continuous operation
+artifacts:
+- "Jellyfin.Plugin.CableCast.dll"
+build_type: "dotnet"
+dotnet_configuration: "Release"
+dotnet_framework: "net8.0"
