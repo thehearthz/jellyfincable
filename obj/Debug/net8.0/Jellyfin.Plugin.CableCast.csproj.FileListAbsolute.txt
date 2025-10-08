@@ -1,0 +1,14 @@
+/app/jellyfin-plugin-cablecast/obj/Debug/net8.0/Jellyfin.Plugin.CableCast.csproj.AssemblyReference.cache
+/app/jellyfin-plugin-cablecast/obj/Debug/net8.0/Jellyfin.Plugin.CableCast.GeneratedMSBuildEditorConfig.editorconfig
+/app/jellyfin-plugin-cablecast/obj/Debug/net8.0/Jellyfin.Plugin.CableCast.AssemblyInfoInputs.cache
+/app/jellyfin-plugin-cablecast/obj/Debug/net8.0/Jellyfin.Plugin.CableCast.AssemblyInfo.cs
+/app/jellyfin-plugin-cablecast/obj/Debug/net8.0/Jellyfin.Plugin.CableCast.csproj.CoreCompileInputs.cache
+/app/jellyfin-plugin-cablecast/bin/Debug/net8.0/Jellyfin.Plugin.CableCast.deps.json
+/app/jellyfin-plugin-cablecast/bin/Debug/net8.0/Jellyfin.Plugin.CableCast.dll
+/app/jellyfin-plugin-cablecast/bin/Debug/net8.0/Jellyfin.Plugin.CableCast.pdb
+/app/jellyfin-plugin-cablecast/bin/Debug/net8.0/Jellyfin.Plugin.CableCast.xml
+/app/jellyfin-plugin-cablecast/obj/Debug/net8.0/Jellyfin.Plugin.CableCast.dll
+/app/jellyfin-plugin-cablecast/obj/Debug/net8.0/refint/Jellyfin.Plugin.CableCast.dll
+/app/jellyfin-plugin-cablecast/obj/Debug/net8.0/Jellyfin.Plugin.CableCast.xml
+/app/jellyfin-plugin-cablecast/obj/Debug/net8.0/Jellyfin.Plugin.CableCast.pdb
+/app/jellyfin-plugin-cablecast/obj/Debug/net8.0/ref/Jellyfin.Plugin.CableCast.dll

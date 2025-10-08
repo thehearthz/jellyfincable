@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>CableCast Configuration</title>
+</head>
+<body>
+    <div id="CableCastConfigPage" data-role="page" class="page type-interior pluginConfigurationPage" data-require="emby-input,emby-button,emby-select,emby-checkbox">
+        <div data-role="content">
+            <div class="content-primary">
+                <form id="CableCastConfigForm">
+                    <div class="sectionTitleContainer flex align-items-center">
+                        <h2 class="sectionTitle">CableCast - Cable TV Channel Plugin</h2>
+                    </div>
+                    
+                    <div class="verticalSection">
+                        <h3>Commercial Settings</h3>
+                        
+                        <div class="checkboxContainer checkboxContainer-withDescription">
+                            <label class="emby-checkbox-label">
+                                <input type="checkbox" is="emby-checkbox" id="chkEnableCommercials" />
+                                <span>Enable Commercial Insertion</span>
+                            </label>
+                            <div class="fieldDescription">
+                                Insert commercials between content during playback.
+                            </div>
+                        </div>
+                        
+                        <div class="inputContainer">
+                            <label class="inputLabel inputLabelUnfocused" for="txtCommercialProbability">Commercial Probability (0.0 - 1.0)</label>
+                            <input is="emby-input" type="number" id="txtCommercialProbability" step="0.1" min="0" max="1" class="emby-input" />
+                            <div class="fieldDescription">
+                                Probability of inserting a commercial between content (0.0 = never, 1.0 = always).
+                            </div>
+                        </div>
+                        
+                        <div class="inputContainer">
+                            <label class="inputLabel inputLabelUnfocused" for="txtCommercialLibraryPath">Commercial Library Path</label>
+                            <input is="emby-input" type="text" id="txtCommercialLibraryPath" class="emby-input" />
+                            <div class="fieldDescription">
+                                Path to the library containing commercial content (optional).
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="verticalSection">
+                        <h3>Pre-Roll Settings</h3>
+                        
+                        <div class="checkboxContainer checkboxContainer-withDescription">
+                            <label class="emby-checkbox-label">
+                                <input type="checkbox" is="emby-checkbox" id="chkEnablePreRoll" />
+                                <span>Enable Pre-Roll Content</span>
+                            </label>
+                            <div class="fieldDescription">
+                                Play pre-roll content before movies and episodes.
+                            </div>
+                        </div>
+                        
+                        <div class="inputContainer">
+                            <label class="inputLabel inputLabelUnfocused" for="txtPreRollLibraryPath">Pre-Roll Library Path</label>
+                            <input is="emby-input" type="text" id="txtPreRollLibraryPath" class="emby-input" />
+                            <div class="fieldDescription">
+                                Path to the library containing pre-roll content (optional).
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="verticalSection">
+                        <h3>Content Settings</h3>
+                        
+                        <div class="inputContainer">
+                            <label class="inputLabel inputLabelUnfocused" for="txtMinContentDuration">Minimum Content Duration (minutes)</label>
+                            <input is="emby-input" type="number" id="txtMinContentDuration" min="1" class="emby-input" />
+                            <div class="fieldDescription">
+                                Minimum duration for content to be included in programming.
+                            </div>
+                        </div>
+                        
+                        <div class="inputContainer">
+                            <label class="inputLabel inputLabelUnfocused" for="txtMaxContentDuration">Maximum Content Duration (minutes)</label>
+                            <input is="emby-input" type="number" id="txtMaxContentDuration" min="1" class="emby-input" />
+                            <div class="fieldDescription">
+                                Maximum duration for content to be included in programming.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="verticalSection">
+                        <h3>Programming Settings</h3>
+                        
+                        <div class="checkboxContainer checkboxContainer-withDescription">
+                            <label class="emby-checkbox-label">
+                                <input type="checkbox" is="emby-checkbox" id="chkUseScheduledProgramming" />
+                                <span>Use Schedule-Based Programming</span>
+                            </label>
+                            <div class="fieldDescription">
+                                Use schedule-based programming instead of continuous loop programming.
+                            </div>
+                        </div>
+                        
+                        <div class="inputContainer">
+                            <label class="inputLabel inputLabelUnfocused" for="txtChannelBufferMinutes">Channel Buffer (minutes)</label>
+                            <input is="emby-input" type="number" id="txtChannelBufferMinutes" min="10" class="emby-input" />
+                            <div class="fieldDescription">
+                                How far ahead to maintain programming schedules (recommended: 60+ minutes).
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <button is="emby-button" type="submit" class="raised button-submit block emby-button">
+                            <span>Save</span>
+                        </button>
+                    </div>
+                </form>
+                
+                <div class="verticalSection">
+                    <h3>Channel Management</h3>
+                    <div class="fieldDescription">
+                        Use the Jellyfin API or create custom channels through the CableCast API endpoints:
+                        <ul>
+                            <li>GET /api/cablecast/channels - List all channels</li>
+                            <li>POST /api/cablecast/channels - Create a new channel</li>
+                            <li>PUT /api/cablecast/channels/{id} - Update a channel</li>
+                            <li>DELETE /api/cablecast/channels/{id} - Delete a channel</li>
+                            <li>GET /api/cablecast/channels/{id}/current - Get current program</li>
+                            <li>GET /api/cablecast/channels/{id}/schedule - Get channel schedule</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        (function () {
+            var pluginId = "a8c8f3b2-4d5e-4f6a-9b8c-7e2f1a3d4e5f";
+
+            document.querySelector('#CableCastConfigPage')
+                .addEventListener('pageshow', function () {
+                    Dashboard.showLoadingMsg();
+                    ApiClient.getPluginConfiguration(pluginId).then(function (config) {
+                        document.querySelector('#chkEnableCommercials').checked = config.EnableCommercials || false;
+                        document.querySelector('#txtCommercialProbability').value = config.CommercialProbability || 0.3;
+                        document.querySelector('#txtCommercialLibraryPath').value = config.CommercialLibraryPath || '';
+                        
+                        document.querySelector('#chkEnablePreRoll').checked = config.EnablePreRoll || false;
+                        document.querySelector('#txtPreRollLibraryPath').value = config.PreRollLibraryPath || '';
+                        
+                        document.querySelector('#txtMinContentDuration').value = config.MinContentDuration || 5;
+                        document.querySelector('#txtMaxContentDuration').value = config.MaxContentDuration || 180;
+                        
+                        document.querySelector('#chkUseScheduledProgramming').checked = config.UseScheduledProgramming !== false;
+                        document.querySelector('#txtChannelBufferMinutes').value = config.ChannelBufferMinutes || 60;
+                        
+                        Dashboard.hideLoadingMsg();
+                    });
+                });
+
+            document.querySelector('#CableCastConfigForm').addEventListener('submit', function (e) {
+                e.preventDefault();
+                
+                Dashboard.showLoadingMsg();
+                
+                var config = {
+                    EnableCommercials: document.querySelector('#chkEnableCommercials').checked,
+                    CommercialProbability: parseFloat(document.querySelector('#txtCommercialProbability').value) || 0.3,
+                    CommercialLibraryPath: document.querySelector('#txtCommercialLibraryPath').value || null,
+                    
+                    EnablePreRoll: document.querySelector('#chkEnablePreRoll').checked,
+                    PreRollLibraryPath: document.querySelector('#txtPreRollLibraryPath').value || null,
+                    
+                    MinContentDuration: parseInt(document.querySelector('#txtMinContentDuration').value) || 5,
+                    MaxContentDuration: parseInt(document.querySelector('#txtMaxContentDuration').value) || 180,
+                    
+                    UseScheduledProgramming: document.querySelector('#chkUseScheduledProgramming').checked,
+                    ChannelBufferMinutes: parseInt(document.querySelector('#txtChannelBufferMinutes').value) || 60
+                };
+
+                ApiClient.updatePluginConfiguration(pluginId, config).then(function () {
+                    Dashboard.processPluginConfigurationUpdateResult();
+                });
+            });
+
+        })();
+    </script>
+</body>
+</html>
